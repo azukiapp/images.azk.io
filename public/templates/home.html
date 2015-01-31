@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1>Azuki <small>images</small></h1>
+</div>
+
+<div class="lead">
+  The <code>Azuki</code> maintains a central repository of <code>imagens</code> already prepared and fully functional for use by <a href="http://azk.io">azk</a>.
+</div>
+
+<div class="well">
+  <span class="glyphicon glyphicon-ok"></span>&nbsp; All <strong>automated builds</strong> published to the public <a href="https://registry.hub.docker.com/">Docker Hub Registry</a> are automatically built directly from the repositories hosted on Github, and they are kept in sync and protected by <a href="https://registry.hub.docker.com/">Docker Hub Registry</a>.
+</div>
+
+<div class="lead">
+  <a href="https://www.docker.com/">Docker</a> is an open platform for developers and sysadmins to build, ship, and run distributed applications, sponsored by <a href="http://www.docker.com/">Docker, Inc.</a> under the <a href="https://github.com/dotcloud/docker/blob/master/LICENSE">Apache 2.0 Licence</a>.
+</div>
+
+<hr>
+
+<h4><span class="glyphicon glyphicon-thumbs-up"></span>Images</h4>
+
+<table class="table table-condensed table-hover">
+  <tr ng-repeat="project in projects">
+    <td><a href="/#/{{ project.id }}">azukiapp/<strong>{{ project.id }}</strong></a></td>
+    <td>{{ project.description }}</td>
+  </tr>
+</table>

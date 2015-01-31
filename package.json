@@ -1,0 +1,41 @@
+{
+  "name": "azk-images",
+  "version": "0.0.1",
+  "description": "Images repository to azk",
+  "main": "index.js",
+  "scripts": {
+    "test": "azk nvm grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azukiapp/images.azk.io"
+  },
+  "keywords": [
+    "azuki",
+    "azk",
+    "images",
+    "dockerfile",
+    "repository"
+  ],
+  "author": "Gulit Miranda <gullit@azukiapp.com>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/azukiapp/images.azk.io/issues"
+  },
+  "homepage": "http://images.azk.io",
+  "dependencies": {
+    "dotenv": "^0.5.1",
+    "express": "^4.11.1",
+    "morgan": "^1.5.1"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "grunt": "^0.4.5",
+    "grunt-aws-s3": "^0.11.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-env": "^0.4.2",
+    "grunt-jscs": "^1.2.0",
+    "mocha": "^2.1.0",
+  }
+}

@@ -1,0 +1,26 @@
+<h1 class="text-center well">
+  <span class="text-danger">azukiapp/{{ projectId }}</span>
+</h1>
+
+<div class="text-center">
+  <a href="https://github.com/azukiapp/{{ projectId }}">
+    <span class="glyphicon glyphicon-star"></span>
+    GitHub Repository
+  </a>
+  &nbsp; | &nbsp;
+  <a href="https://registry.hub.docker.com/u/azukiapp/{{ projectId }}/">
+    <span class="glyphicon glyphicon-thumbs-up"></span>
+    Docker Hub Registry
+  </a>
+</div>
+
+<div class="row" ng-show="readme">
+  <hr>
+  <div ng-bind-html="readme"></div>
+</div>
+
+<div class="row" ng-show="dockerfile">
+  <hr>
+  <h2>Dockerfile</h2>
+  <pre ng-bind-html="dockerfile"></pre>
+</div>
