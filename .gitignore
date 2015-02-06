@@ -1,3 +1,5 @@
 .azk
 node_modules
 *.log
+build/
+deploy/

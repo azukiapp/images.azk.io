@@ -1,0 +1,333 @@
+/* Large desktop */
+
+@media (min-width: 1200px) {
+
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	h2 { font: 100 46px/52px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	h3 { font: 100 24px/28px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	h4 { font: 100 24px/28px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	h5 { font: 100 14px/24px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	h6 { font: 100 14px/20px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	body {
+		padding: 0;
+	}
+	.wrapper {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.navbar .nav > li > a {
+		border-top: 1px solid #f6f6f6;
+		font-size: 14px;
+	}
+	.navbar-fixed-top, 
+	.navbar-fixed-bottom, 
+	.navbar-static-top {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.nav-collapse .nav > li > a {
+		margin-bottom: 0px;
+	}
+	.nav-collapse .nav {
+		margin: 0;
+	}
+	.navbar .btn-navbar {
+		background-image: none;
+		background-color: transparent;
+		border-color: transparent;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		border-left: 1px solid #eee;
+		border-radius: 0;
+		-webkit-border-radius: 0;
+		padding: 20px;
+		margin: 0;
+	}
+	.navbar .btn-navbar .icon-bar {
+		background-color: #000;
+	}
+	.navbar-fixed-top .navbar-inner, 
+	.navbar-fixed-bottom .navbar-inner {
+		padding: 0;
+	}
+	.carousel-control {
+		display: none !important;
+	}
+	.price {
+		font-size: 50px;
+	}
+	.decimal {
+		font-size: 28px;
+	}
+	.icon-3x {
+		font-size: 2em;	
+	}
+	.icon-4x,
+	.icon-5x {
+		font-size: 3em;	
+	}
+	.main-title h2 {
+		font-size: 44px;
+		margin: 0 0 10px;
+	}
+	.home {
+		background-size: 770px auto;
+		padding-top: 95px;
+	}
+	#back {
+		left: -510px;
+		z-index: -1;
+	}
+	.anchor {
+		position: absolute;
+		top: 0;
+	}
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	body {
+		padding: 0;
+	}
+	.wrapper {
+		padding-left: 10px;
+		padding-right: 10px;
+		text-align: center;
+	}
+	.home {
+		padding-top: 0;
+		background-size: 590px auto;
+		padding-top: 95px;
+	}
+	.navbar-fixed-top, 
+	.navbar-fixed-bottom, 
+	.navbar-static-top {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.navbar .brand {
+		padding: 10px 10px 0;
+	}
+	.navbar .nav > li > a {
+		padding: 10px;
+		border-top: 1px solid #f6f6f6;
+	}
+	.nav-collapse .nav > li > a {
+		margin-bottom: 0px;
+	}
+	.nav-collapse .nav {
+		margin: 0;
+	}
+	.navbar .btn-navbar {
+		background-image: none;
+		background-color: transparent;
+		border-color: transparent;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		border-left: 1px solid #eee;
+		border-radius: 0;
+		-webkit-border-radius: 0;
+		padding: 20px;
+		margin: 0;
+	}
+	.navbar .btn-navbar .icon-bar {
+		background-color: #000;
+	}
+	.navbar-fixed-top .navbar-inner, 
+	.navbar-fixed-bottom .navbar-inner {
+		padding: 0;
+	}
+	.tab-content {
+		text-align: center;
+	}
+	.row-fluid [class*="span"].bordered {
+		display: inline-block !important;
+		width: auto;
+	}
+	.pricing-table {
+		margin-bottom: 20px;
+	}
+	.focus {
+		margin-top: 0;
+	}
+	.focus .pricing-price {
+		padding: 40px 0;
+	}
+	.carousel-control,
+	.arrow {
+		display: none !important;
+	}
+	#back {
+		top: -1050px;
+		left: -610px;
+		z-index: -1;
+	}
+	.team {
+		padding: 10px 0;
+		margin: 0 0 20px;
+		border-bottom: 1px solid rgba(255,255,255,.2);
+	}
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	body {
+		padding: 0;
+	}
+	h2, .main-title h2 { font: 100 36px/40px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	h3, .main-title h3 { font: 100 20px/24px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	h4 { font: 100 20px/24px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	h5 { font: 100 14px/18px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	h6 { font: 100 14px/18px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+	#back {
+		top: -1150px;
+		left: -730px;
+		z-index: -1;
+	}
+	.home {
+		background-size: 310px auto;
+		min-height: 585px;
+	}
+	.wrapper {
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 95px;
+		text-align: center;
+	}
+	.main-title {
+		margin: 0 0 50px;
+	}
+	blockquote {
+		text-align: left;
+	}
+	footer {
+		text-align: center;
+	}
+	footer ul.inline > li, 
+	footer ol.inline > li,
+	footer > .copyright {
+		display: block;
+		text-align: center;
+		padding: 10px 0;
+	}
+	.btn {
+		display: block;
+		margin-bottom: 10px;
+	}
+	.team {
+		padding: 10px 0;
+		margin: 0 0 20px;
+		border-bottom: 1px solid rgba(255,255,255,.2);
+	}
+	.pricing-table {
+		margin-bottom: 20px;
+	}
+	.focus {
+		margin-top: 0;
+	}
+	.focus .pricing-price {
+		padding: 40px 0;
+	}
+	.carousel-control,
+	.arrow {
+		display: none !important;
+	}
+	.navbar-fixed-top, 
+	.navbar-fixed-bottom, 
+	.navbar-static-top {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.navbar .brand {
+		padding: 10px 10px 0;
+	}
+	.navbar .nav > li > a {
+		padding: 10px;
+		border-top: 1px solid #f6f6f6;
+	}
+	.nav-collapse .nav > li > a {
+		margin-bottom: 0px;
+	}
+	.nav-collapse .nav {
+		margin: 0;
+	}
+	.navbar .btn-navbar {
+		background-image: none;
+		background-color: transparent;
+		border-color: transparent;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		border-left: 1px solid #eee;
+		border-radius: 0;
+		-webkit-border-radius: 0;
+		padding: 20px;
+		margin: 0;
+	}
+	.navbar .btn-navbar .icon-bar {
+		background-color: #000;
+	}
+	.navbar-fixed-top .navbar-inner, 
+	.navbar-fixed-bottom .navbar-inner {
+		padding: 0;
+	}
+	.anchor {
+		top: 0;
+	}
+}
+
+@media (min-width: 480px) {
+	.margin-sm-right {
+		margin-right: 15px;
+	}
+}
+
+@media (min-width: 768px) {
+	.content-brand {
+		width: 60px;
+	}	
+}
+
+@media (min-width: 992px) {
+	.content-brand {
+		width: 80px;
+		height: 90px;
+	}
+
+	.navbar-default .navbar-collapse {
+		padding-right: 60px;
+	}
+
+	.nav {
+		margin-top: 18px;
+	}
+
+	.testimonal__first {
+		height: 150px;
+	}
+
+	.testimonal__second {
+		height: 255px;
+	}
+
+	.testimonal__third {
+		height: 175px;
+	}
+	.testimonal_fourth {
+		height: 195px;
+	}
+}
+
+
+@media (min-width: 1322px) {
+	.navbar-default .navbar-collapse {
+		padding-right: 0;
+	}	
+}
+
+.use-case-img {
+	width: 100%;
+	max-width: 180px;
+}

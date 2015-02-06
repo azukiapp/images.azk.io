@@ -8,7 +8,7 @@ systems({
     // Dependent systems
     depends: [],
     // More images:  http://images.azk.io
-    image: {"docker": "node:0.10"},
+    image: {"docker": "azukiapp/node:0.10"},
     // Steps to execute before running instances
     provision: [
       "npm install",
@@ -30,10 +30,9 @@ systems({
     envs: {
       // set instances variables
       NODE_ENV: "dev",
+      PATH: "node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
       // PATH: "node_modules/.bin:$PATH",
     },
   },
 });
-
-
 
