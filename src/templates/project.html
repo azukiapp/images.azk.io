@@ -14,13 +14,15 @@
   </a>
 </div>
 
-<div class="row" ng-show="readme">
+<div class="" ng-show="readme">
   <hr>
-  <div ng-bind-html="readme"></div>
+  <div ng-bind-html="readme" do-highlight></div>
 </div>
 
-<div class="row" ng-show="dockerfile">
+<div class="" ng-show="dockerfile">
   <hr>
   <h2>Dockerfile</h2>
-  <pre ng-bind-html="dockerfile"></pre>
+  <pre class="prettyprint line-numbers language-dockerfile">
+    <code ng-bind-html="dockerfile" class="language-dockerfile" do-highlight></code>
+  </pre>
 </div>

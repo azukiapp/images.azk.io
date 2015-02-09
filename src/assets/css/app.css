@@ -54,3 +54,7 @@ header.navbar   {
 code {
   font-size: 80%;
 }
+
+code[class*="language-dockerfile"] {
+  float: left;
+}

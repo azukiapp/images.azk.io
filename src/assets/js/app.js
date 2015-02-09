@@ -5,8 +5,12 @@ marked.setOptions({
   pedantic: false,
   sanitize: true,
   smartLists: true,
-  smartypants: false
+  smartypants: false,
+  langPrefix: 'language-'
 });
+
+var PrismlangRegEX = /\blang(?:uage)?-(?!\*)(\w+)\b/i;
+
 
 angular.module('app', [
   'ui.router'
@@ -51,9 +55,8 @@ angular.module('app', [
               return res.data;
             },
             function (res) {
-              alert(res.data.message);
               console.error(res);
-              $state.go('home');
+              return null;
             }
           );
         }
@@ -68,7 +71,6 @@ angular.module('app', [
       var projects = data.items;
       _.sortBy(projects, 'name').forEach(function (project) {
         if (!_.contains(['dockerfiles', 'docker-registry-downloader'], project.name)) {
-        console.log('project:', project);
           $rootScope.projects.push({
             id: project.name.replace(/docker-/, ''),
             name: project.name.replace(/docker-/, '').replace(/-/, ' '),
@@ -85,6 +87,49 @@ angular.module('app', [
   // ...
 }).controller('ProjectCtrl', function ($sce, $scope, $stateParams, dockerfile, readme) {
   $scope.projectId = $stateParams.projectId;
+
+
+  // var highlightedDockerfile = Prism.highlight(dockerfile, Prism.languages.dockerfile, dockerfile);
+  // $scope.dockerfile = $sce.trustAsHtml(highlightedDockerfile);
   $scope.dockerfile = $sce.trustAsHtml(dockerfile);
+
   $scope.readme = $sce.trustAsHtml(marked(readme));
-});
+})
+
+.directive('doHighlight', ['$compile', function ($compile) {
+  return function(scope, element, attrs) {
+    var isCode = PrismlangRegEX.test(element.attr('class'));
+    var codeSelector = 'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code';
+
+    scope.$watch(
+      // watch the 'doCompile' expression for changes
+      function(scope) {
+        return scope.$eval(attrs.doCompile);
+      },
+      // when the 'doCompile' expression changes
+      function(value) {
+        // assign it into the current DOM
+        // element.html(value);
+        var elms = (isCode) ? element : element.find(codeSelector);
+
+        elms.each(function(ix, elm) {
+          // if elm.textContent is Azkfile.js
+          // replace language to 'azkfile'
+          // https://regex101.com/r/iO8qI8/1
+          if (/Azkfile(\.js)?|^systems\(/gmi.test(elm.textContent)) {
+            elm.className = elm.className.replace(/(language-|lang-).*/gm, "$1azkfile");
+          }
+
+          Prism.highlightElement(elm);
+        });
+
+        // compile the new DOM and link it to the current
+        // scope.
+        // NOTE: we only compile .childNodes so that
+        // we don't get into infinite loop compiling ourselves
+        $compile(element.contents())(scope);
+      }
+    );
+  };
+}]);
+;

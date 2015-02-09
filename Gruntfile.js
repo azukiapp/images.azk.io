@@ -2,7 +2,6 @@
 
 module.exports = function(grunt) {
 
-  console.log('process.env', process.env);
   grunt.initConfig({
     copy: {
       main: {
