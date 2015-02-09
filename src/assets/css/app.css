@@ -258,3 +258,8 @@ code {
 .readme h1:first-child {
   display: none;
 }
+
+.readme h2,
+.dockerfile h2 {
+  font-size: 26px;
+}
