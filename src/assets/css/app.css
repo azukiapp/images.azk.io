@@ -120,6 +120,11 @@ footer {
 img {
   width: 100%;
 }
+
+pre {
+  word-wrap: normal;
+}
+
 /* ======================================================================== */
 /* ! Typography
 /* ======================================================================== */
@@ -248,10 +253,6 @@ p, ul { color: rgba(34,42,49,.7); }
 
 code {
   font-size: 80%;
-}
-
-code[class*="language-dockerfile"] {
-  float: left;
 }
 
 .readme h1:first-child {

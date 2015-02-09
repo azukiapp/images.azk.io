@@ -88,17 +88,15 @@ angular.module('app', [
 }).controller('ProjectCtrl', function ($sce, $scope, $stateParams, dockerfile, readme) {
   $scope.projectId = $stateParams.projectId;
 
+  var dockerhtml = '<code class="dockerfile" class="language-dockerfile" >'+ dockerfile +'</code>';
 
-  // var highlightedDockerfile = Prism.highlight(dockerfile, Prism.languages.dockerfile, dockerfile);
-  // $scope.dockerfile = $sce.trustAsHtml(highlightedDockerfile);
-  $scope.dockerfile = $sce.trustAsHtml(dockerfile);
-
-  $scope.readme = $sce.trustAsHtml(marked(readme));
+  $scope.dockerfile = $sce.trustAsHtml(dockerhtml);
+  $scope.readme     = $sce.trustAsHtml(marked(readme));
 })
 
 .directive('doHighlight', ['$compile', function ($compile) {
   return function(scope, element, attrs) {
-    var isCode = PrismlangRegEX.test(element.attr('class'));
+    var isCode = (element.tagName === 'CODE' && PrismlangRegEX.test(element.attr('class')));
     var codeSelector = 'code';
 
     scope.$watch(
