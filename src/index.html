@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/assets/css/bootstrap.css">
   <link rel="stylesheet" href="/assets/css/app.css"/>
   <link rel="stylesheet" href="/assets/css/prism-okaidia.css"/>
+  <link rel="stylesheet" href="/assets/css/responsive.css"/>
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
 
   <!-- Favicon and touch icons  -->
@@ -28,25 +29,36 @@
   <link href="/assets/ico/favicon.png" rel="shortcut icon">
 </head>
 
-<body>
+<body class="page-aqua">
   <div id="wrap">
-    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <header>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <a href="https://github.com/azukiapp/azk" class="visible-md visible-lg">
+          <img class="fork-me" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+        </a>
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">
-            <img src="https://s.gravatar.com/avatar/a74887c5967619d3f1dc63f840bd704e?s=50" alt="Azuki" title="Azuki Image">
-          </a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="http://azk.io">azk.io</a></li>
-          </ul>
+            </button>
+            <a class="content-brand" href="/#">
+              <img src="/assets/images/logo-azk.png" alt="Logo Azk" class="content-brand__image">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right" role="tablist">
+              <li><a href="#home">Home</a></li>
+              <li><a href="http://azk.io#features">Features</a></li>
+              <li><a href="http://azk.io#azkfile">Azkfile.js</a></li>
+              <li class="active"><a href="http://images.azk.io">Images</a></li>
+              <li><a href="http://azk.io#use-case">Use Cases</a></li>
+              <li><a href="http://azk.io#testimonials">Testimonials</a></li>
+              <li><a href="http://azk.io#newsletter">Newsletter</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>

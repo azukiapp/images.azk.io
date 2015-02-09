@@ -1,19 +1,214 @@
-html,
-body {
-  height: 100%;
+/*
+  azk.io
+*/
+/* Css */
+/* ======================================================================== */
+/* ! Font
+/* ======================================================================== */
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'ProximaNova';
+  src: url('../fonts/ProximaNova-Regular.eot');
+  src: url('../fonts/ProximaNova-Regular.eot?#iefix') format('eot'),
+       url('../fonts/ProximaNova-Regular.woff') format('woff'),
+       url('../fonts/ProximaNova-Regular.ttf') format('truetype'),
+       url('../fonts/ProximaNova-Regular.svg') format('svg');
+}
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'ProximaNova-Semibold';
+  src: url('../fonts/ProximaNova-Semibold.eot');
+  src: url('../fonts/ProximaNova-Semibold.eot?#iefix') format('eot'),
+     url('../fonts/ProximaNova-Semibold.woff') format('woff'),
+     url('../fonts/ProximaNova-Semibold.ttf') format('truetype'),
+     url('../fonts/ProximaNova-Semibold.svg') format('svg');
+}
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'ProximaNova-Bold';
+  src: url('../fonts/ProximaNova-Bold.eot');
+  src: url('../fonts/ProximaNova-Bold.eot?#iefix') format('eot'),
+     url('../fonts/ProximaNova-Bold.woff') format('woff'),
+     url('../fonts/ProximaNova-Bold.ttf') format('truetype'),
+     url('../fonts/ProximaNova-Bold.svg') format('svg');
+}
+@font-face {
+    font-family: 'ProximaNova-Light';
+    src: url('../fonts/proximanova-light-webfont.eot');
+    src: url('../fonts/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanova-light-webfont.woff') format('woff'),
+         url('../fonts/proximanova-light-webfont.ttf') format('truetype'),
+         url('../fonts/proximanova-light-webfont.svg#proxima_novalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-header.navbar   {
-  background-color: #2C3D50;
+/* ======================================================================== */
+/* ! General
+/* ======================================================================== */
+body {
+  font: 15px/20px "ProximaNova", Arial, Helvetica, Geneva, sans-serif;
+  padding-top: 80px;
+  position: relative;
+}
+a {
+  color: #24afaa;
+}
+a:hover {
+  color: #50bfbb;
+  text-decoration: none;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+.colored a {
   color: #fff;
 }
-
-
-.navbar-header .navbar-brand {
-  margin-left: 0;
+.colored a:hover {
+  color: rgba(255,255,255,.5);
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+.bold,
+strong {
+  font-family: 'ProximaNova-Semibold';
+}
+.light {
+  font-family: 'ProximaNova-Light';
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.wrapper {
+  min-height: 730px;
+  box-sizing: border-box;
+  position: relative;
+  padding: 28px 0;
+}
+.mini-wrapper {
+  min-height: 310px;
+  position: relative;
+  padding: 60px 0 90px;
+}
+.anchor {
+  position: absolute;
+  top: -80px;
+}
+.bordered {
+  border: 5px solid #2FB4CB;
+  display: inline-block;
+}
+.full-rounded {
+  border-radius: 1000px;
+  -moz-border-radius: 1000px;
+  -webkit-border-radius: 1000px;
+  -ms-border-radius: 1000px;
   padding: 0;
 }
+header,
+section,
+footer {
+  z-index: 2;
+}
+img {
+  width: 100%;
+}
+/* ======================================================================== */
+/* ! Typography
+/* ======================================================================== */
+h1, h2, h3, h4, h5, h6, p { margin: 0 0 20px; letter-spacing: 0; }
+h2 { font: 100 52px/52px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+h3 { font: 100 24px/30px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+h3 { font: 100 24px/30px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+h4 { font: 100 30px/36px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+h5 { font: 100 18px/24px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+h6 { font: 100 14px/20px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
+.colored p, .colored ul { color: rgba(255,255,255,.7); }
+p, ul { color: rgba(34,42,49,.7); }
+/* ======================================================================== */
+/* ! Nav
+/* ======================================================================== */
 
+.page-aqua .navbar .nav > li > a {
+  color: #999999;
+}
+
+.page-aqua .navbar .nav > li > a:hover,
+.page-aqua .navbar .nav > .active > a,
+.page-aqua .navbar .nav > .active:hover > a {
+  background: none;
+  color: #30B4CB;
+}
+
+.page-aqua .navbar .nav > li > a:hover {
+  color: #000000;
+}
+
+.content-brand {
+  display: block;
+  margin-left: 10px;
+  width: 40px;
+}
+.content-brand__image {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.nav {
+  font: normal 16px/16px "ProximaNova-Semibold", Arial, Helvetica, Geneva, sans-serif;
+  text-shadow: none;
+  margin-top: 8px;
+}
+
+.navbar .container {
+  padding: 10px 60px auto 60px;;
+}
+
+.navbar .nav > li:focus {
+  outline: 0;
+}
+
+.navbar-inner {
+  background: #fff;
+  background-image: none;
+}
+.navbar .nav > li > a {
+  color: #222a31;
+}
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+  text-shadow: none;
+}
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* FORK ME */
+.fork-me {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  height: 140px;
+  width: 140px;
+}
+
+
+/*
+  Content
+ */
 #wrap {
   min-height: 100%;
   height: auto;
@@ -57,4 +252,8 @@ code {
 
 code[class*="language-dockerfile"] {
   float: left;
+}
+
+.readme h1:first-child {
+  display: none;
 }

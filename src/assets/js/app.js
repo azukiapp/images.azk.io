@@ -99,7 +99,7 @@ angular.module('app', [
 .directive('doHighlight', ['$compile', function ($compile) {
   return function(scope, element, attrs) {
     var isCode = PrismlangRegEX.test(element.attr('class'));
-    var codeSelector = 'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code';
+    var codeSelector = 'code';
 
     scope.$watch(
       // watch the 'doCompile' expression for changes
@@ -117,7 +117,11 @@ angular.module('app', [
           // replace language to 'azkfile'
           // https://regex101.com/r/iO8qI8/1
           if (/Azkfile(\.js)?|^systems\(/gmi.test(elm.textContent)) {
-            elm.className = elm.className.replace(/(language-|lang-).*/gm, "$1azkfile");
+            if (/(language-|lang-).*/gm.test(elm.className)) {
+              elm.className = elm.className.replace(/(language-|lang-).*/gm, "$1azkfile");
+            } else {
+              elm.className = 'language-azkfile';
+            }
           }
 
           Prism.highlightElement(elm);
