@@ -61,11 +61,9 @@ module.exports = function(grunt) {
             Expires: (new Date(Date.now() + 63072000000)) // 2 years
           }
         },
-        files: [{
-          expand: true,
-          cwd: './build/',
-          src: ['assets/**/*'],
-        }],
+        files: [
+          { expand: true, cwd: './deploy/', src: ['**/*'] }
+        ],
       },
 
       deleteAll: {
