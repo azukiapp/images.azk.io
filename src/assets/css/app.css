@@ -125,7 +125,12 @@ pre {
   word-wrap: normal;
 }
 
-span.glyphicon.glyphicon-thumbs-up {
+.small-glyphicon {
+  top: 2px;
+  margin: 0px 1px;
+}
+
+.big-thumbs-up {
   margin-right: 10px;
   top: 6px;
 }
