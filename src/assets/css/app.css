@@ -125,6 +125,16 @@ pre {
   word-wrap: normal;
 }
 
+.small-glyphicon {
+  top: 2px;
+  margin: 0px 1px;
+}
+
+.big-thumbs-up {
+  margin-right: 10px;
+  top: 6px;
+}
+
 /* ======================================================================== */
 /* ! Typography
 /* ======================================================================== */
@@ -137,6 +147,8 @@ h5 { font: 100 18px/24px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-ser
 h6 { font: 100 14px/20px "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif; }
 .colored p, .colored ul { color: rgba(255,255,255,.7); }
 p, ul { color: rgba(34,42,49,.7); }
+ul, ol { margin: 0 0 20px;}
+pre { margin: 0 0 20px !important;}
 /* ======================================================================== */
 /* ! Nav
 /* ======================================================================== */

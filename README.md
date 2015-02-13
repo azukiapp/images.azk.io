@@ -13,6 +13,7 @@ Install AZK
 Start project:
 
   ```bash
+  azk nvm grunt compile
   azk start --open
   ```
 
@@ -43,6 +44,7 @@ Instale o `azk`
 Inicie o projeto:
 
   ```bash
+  azk nvm grunt compile
   azk start --open
   ```
 
