@@ -171,7 +171,7 @@ pre { margin: 0 0 20px !important;}
 .content-brand {
   display: block;
   margin-left: 10px;
-  width: 40px;
+  width: 160px;
 }
 .content-brand__image {
   margin-top: 5px;
@@ -274,4 +274,8 @@ code {
 .readme h2,
 .dockerfile h2 {
   font-size: 26px;
+}
+
+.underline-dotted-blue {
+  border-bottom: 1px dotted #30b4cb;
 }
