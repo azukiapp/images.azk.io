@@ -279,6 +279,7 @@
 }
 
 @media (min-width: 480px) {
+  
 	.margin-sm-right {
 		margin-right: 15px;
 	}
@@ -286,14 +287,15 @@
 
 @media (min-width: 768px) {
 	.content-brand {
-		width: 60px;
-	}	
+    /*width: 60px;*/
+		width: 160px;
+	}
 }
 
 @media (min-width: 992px) {
 	.content-brand {
-		width: 80px;
-		height: 90px;
+    width: 240px;
+    height: 100px;
 	}
 
 	.navbar-default .navbar-collapse {
