@@ -8,5 +8,5 @@ dotenv.load();
 // set the static files location /build
 app.use(express.static(__dirname + '/build'));
 app.use(morgan('dev'));
-app.listen(8080);
+app.listen(process.env.HTTP_PORT || 8080);
 console.log("App listening on port 8080");
