@@ -3,3 +3,5 @@ node_modules
 *.log
 build/
 deploy/
+.DS_Store
+bower_modules

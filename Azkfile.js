@@ -11,7 +11,7 @@ systems({
     image: {"docker": "azukiapp/node:0.10"},
     // Steps to execute before running instances
     provision: [
-      "npm install",
+      "npm install"
     ],
     workdir: "/azk/#{manifest.dir}",
     shell: "/bin/bash",
@@ -19,8 +19,9 @@ systems({
     wait: {"retry": 20, "timeout": 1000},
     mounts: {
       '/azk/#{manifest.dir}': path("."),
+      '/azk/#{manifest.dir}/node_modules': path("node_modules"),
     },
-    scalable: {"default": 2},
+    scalable: {"default": 1},
     http: {
       domains: [ "#{system.name}.#{azk.default_domain}" ]
     },

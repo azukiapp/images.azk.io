@@ -1,26 +1,57 @@
-<h1 class="text-center well">
-  <span class="text-danger">azukiapp/{{ projectId }}</span>
-</h1>
+<div class="row">
+  <div class="col-md-9">
+    <h1>
+      <span class="text-danger">azukiapp/{{ projectId }}</span>
+    </h1>
 
-<div class="text-center">
-  <a href="https://github.com/azukiapp/docker-{{ projectId }}">
-    <span class="glyphicon glyphicon-star small-glyphicon"></span>
-    GitHub Repository
-  </a>
-  &nbsp; | &nbsp;
-  <a href="https://registry.hub.docker.com/u/azukiapp/{{ projectId }}/">
-    <span class="glyphicon glyphicon-thumbs-up small-glyphicon"></span>
-    Docker Hub Registry
-  </a>
-</div>
+    <!-- README container -->
+    <div ng-show="readme">
+      <hr>
+      <div class="readme" ng-bind-html="readme" do-highlight></div>
+    </div>
 
-<div ng-show="readme">
-  <hr>
-  <div class="readme" ng-bind-html="readme" do-highlight></div>
-</div>
+    <!-- Dockerfile container -->
+    <div class="dockerfile" ng-show="dockerfile">
+      <hr>
+      <h2>Dockerfile: {{projectId}} ({{version}})</h2>
+      <pre class="prettyprint line-numbers language-dockerfile" ng-bind-html="dockerfile" do-highlight></pre>
+    </div>
+  </div>
 
-<div class="dockerfile" ng-show="dockerfile">
-  <hr>
-  <h2>Dockerfile</h2>
-  <pre class="prettyprint line-numbers language-dockerfile" ng-bind-html="dockerfile" do-highlight></pre>
+  <!-- Right sidebar -->
+  <div class="col-md-3">
+  <div id="stickySidebar">
+    <ul class="nav">
+      <li>
+        <a href="https://github.com/azukiapp/docker-{{ projectId }}">
+          <span class="glyphicon glyphicon-star small-glyphicon"></span>
+          GitHub Repository
+        </a>
+      </li>
+      <li>
+        <a href="https://registry.hub.docker.com/u/azukiapp/{{ projectId }}/">
+          <span class="glyphicon glyphicon-thumbs-up small-glyphicon"></span>
+          Docker Hub Registry
+        </a>
+      </li>
+
+      <li>
+        <span style="display:block; padding: 10px 15px;">
+          <span class="glyphicon glyphicon-folder-open small-glyphicon"></span>
+          Versions
+        </span>
+        <!-- Nav tabs -->
+        <!-- <div role="tabpanel"> -->
+        <ul class="dockerfile-versions">
+          <li  ng-repeat="version in dockerVersions | orderBy:'-name'" role="presentation">
+            <a  href="/#/{{ projectId }}/{{ version.id }}">{{ version.name }}</a>
+          </li>
+        </ul>
+        <!-- </div> -->
+      </li>
+
+    </ul>
+  </div>
+  </div>
+
 </div>

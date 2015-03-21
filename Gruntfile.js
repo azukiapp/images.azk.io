@@ -116,11 +116,13 @@ module.exports = function(grunt) {
     uglify: {
       javascripts: {
         files: {
-          'build/assets/js/all.min.js': [
+          'build/assets/js/plugins.min.js': [
             'src/assets/js/jquery.js',
             'src/assets/js/html5shiv.js',
-            'src/assets/js/bootstrap.js',
-            'src/assets/js/app.js',
+            'src/assets/js/bootstrap.js'
+          ],
+          'build/assets/js/app.min.js': [
+            'src/assets/js/app.js'
           ]
         }
       },

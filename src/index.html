@@ -19,7 +19,8 @@
   <link rel="stylesheet" href="/assets/css/app.css"/>
   <link rel="stylesheet" href="/assets/css/prism-okaidia.css"/>
   <link rel="stylesheet" href="/assets/css/responsive.css"/>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+
+  <script src="/assets/js/vendor/modernizr.js"></script>
 
   <!-- Favicon and touch icons  -->
   <link href="/assets/ico/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
@@ -62,18 +63,7 @@
       </div>
     </header>
 
-    <section class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <ul class="list-group">
-            <h4>Images</h4>
-            <li class="list-group-item" ng-repeat="project in projects | orderBy:'name'">
-              <a href="/#/{{ project.id }}" ng-bind="project.id"></a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-9" ui-view></div>
-      </div>
+    <section class="container" id="container">
     </section>
 
   </div>
@@ -92,16 +82,21 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.2.6/json3.min.js"></script>
   <![endif]-->
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-  <script src="/assets/js/jquery.js"></script>
-  <script src="/assets/js/bootstrap.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.5/angular.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.0/angular-ui-router.min.js"></script>
-
-  <script src="/assets/js/prism.js" data-manual></script>
+  <script src="/assets/js/vendor/jquery.js"></script>
+  <script src="/assets/js/vendor/bootstrap.js"></script>
+  <script src="/assets/js/vendor/lodash.js"></script>
+  <script src="/assets/js/vendor/marked.js"></script>
+  <script src="/assets/js/vendor/common.js"></script>
+  <script src="/assets/js/vendor/prism.js" data-manual></script>
   <script src="/assets/js/prism_azkfile.js" data-manual></script>
-  <script src="/assets/js/marked.js"></script>
+
+  <script src="/assets/js/vendor/react.js"></script>
+  <script src="/assets/js/vendor/ReactRouter.js"></script>
+
   <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/app.home.js"></script>
+  <script src="/assets/js/app.projects.js"></script>
+  <script src="/assets/js/app.router.js"></script>
 
   <script>
     // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

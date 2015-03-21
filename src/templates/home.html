@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Azuki <small>images</small></h1>
+<br>  <h1>About</h1>
 </div>
 
 <div class="lead">
@@ -19,7 +19,7 @@
 <h4><span class="glyphicon glyphicon-thumbs-up big-thumbs-up"></span>Images</h4>
 
 <table class="table table-condensed table-hover">
-  <tr ng-repeat="project in projects">
+  <tr ng-repeat="project in projects | orderBy:'name'">
     <td><a href="/#/{{ project.id }}">azukiapp/<strong>{{ project.id }}</strong></a></td>
     <td>{{ project.description }}</td>
   </tr>

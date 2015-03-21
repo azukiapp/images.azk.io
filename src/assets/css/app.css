@@ -279,3 +279,7 @@ code {
 .underline-dotted-blue {
   border-bottom: 1px dotted #30b4cb;
 }
+
+.dockerfile-versions li {
+  padding: 5px 10px;
+}
