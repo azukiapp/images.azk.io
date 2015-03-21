@@ -7,14 +7,11 @@
 var ProjectTemplate = React.createClass({
   mixins: [Router.State],
 
-  shouldComponentUpdate: function(nextProps, nextState) {
-    console.log("shouldComponentUpdate? Props:", nextProps);
-    console.log("shouldComponentUpdate? State:", nextState);
-    return true;
-  },
-
   componentWillReceiveProps: function(nextProps) {
-    console.log("componentWillReceiveProps", nextProps);
+    if (this.props != nextProps) {
+      this.componentDidMount();
+    }
+    return true;
   },
 
   getInitialState: function() {
