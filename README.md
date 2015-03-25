@@ -10,13 +10,25 @@ Install AZK
 
   [http://docs.azk.io/en/installation/](http://docs.azk.io/en/installation/)
 
+Install assets with Bower:
+
+  ```bash
+  azk nvm bower install
+  ```
+  
 Start project:
 
   ```bash
-  azk nvm grunt compile
+  azk nvm gulp default
   azk start --open
   ```
+  
+For development:
 
+  ```bash
+  azk nvm gulp watch
+  ```
+  
 Logs:
 
   ```bash
@@ -28,7 +40,7 @@ Logs:
 Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` and `AWS_BUCKET` keys in local `.env` file and run:
 
   ```bash
-  $ azk shell -c 'grunt deploy'
+  $ azk shell -c 'gulp deploy'
   ```
 
 ## Portuguese Version
@@ -41,12 +53,26 @@ Instale o `azk`
 
   [http://docs.azk.io/pt-BR/installation/](http://docs.azk.io/pt-BR/installation/)
 
+
+Instale assets via Bower:
+
+  ```bash
+  azk nvm bower install
+  ```
+  
 Inicie o projeto:
 
   ```bash
-  azk nvm grunt compile
+  azk nvm gulp default
   azk start --open
   ```
+  
+Para desenvolvimento:
+
+  ```bash
+  azk nvm gulp watch
+  ```
+  
 
 Logs:
 
@@ -59,7 +85,7 @@ Logs:
 Adicione as chaves `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` e `AWS_BUCKET` no arquivo local `.env` e depois execute:
 
   ```bash
-  $ azk shell -c 'grunt deploy'
+  $ azk shell -c 'gulp deploy'
   ```
 
 ## License
