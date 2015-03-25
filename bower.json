@@ -2,12 +2,10 @@
     "name": "imagez-azk-io",
     "private": false,
     "dependencies": {
-        "modernizr":  "v2010.07.06dev",
         "bootstrap":  "3.3.2",
         "html5shiv":  "3.7.2",
         "marked":     "0.3.3",
         "lodash":     "3.5.0",
-        "commonjs":   "0.2.0",
         "react":      "0.12.1",
         "react-router":"0.12.4"
     }

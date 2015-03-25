@@ -3,10 +3,10 @@
  */
 
 var routes = (
-  <Route handler={App}>
+  <Route handler={App} ignoreScrollBehavior>
     <Route path="/" handler={HomeTemplate} />
     <Route path="/:name" handler={ProjectTemplate} />
-    <Route path="/:name/:version" handler={ProjectTemplate} />
+    <Route path="/:name/:version" handler={ProjectTemplate}  />
   </Route>
 );
 

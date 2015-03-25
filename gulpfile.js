@@ -7,13 +7,15 @@ var dotenv              = require('dotenv');
 var del                 = require('del');
 var gulp                = require('gulp');
 var awspublish          = require('gulp-awspublish');
-var concat              = require('gulp-concat-sourcemap');
+var parallelize         = require('concurrent-transform');
+var concat              = require('gulp-concat');
 var uglify              = require('gulp-uglify');
 var jshint              = require('gulp-jshint');
 var jsreporter          = require('jshint-stylish');
 var react               = require('gulp-react');
 var runSequence         = require('run-sequence');
-
+var htmlreplace         = require('gulp-html-replace');
+var debug = require('gulp-debug');
 
 // JSHINT
 var scripts = ['src/assets/js/**/*.js', '!src/assets/js/vendor/**/*'];
@@ -44,15 +46,25 @@ gulp.task('clean-build-folder', function (cb) {
  *  HTML
  */
 
-gulp.task('html', function() {
-return gulp.src('src/**/*.html')
-  .pipe(gulp.dest( 'build' ))
+gulp.task('copy-html', function() {
+  return gulp.src('src/**/*.html')
+    .pipe(gulp.dest( 'build' ))
+});
+
+
+gulp.task('htmlreplace', function() {
+  return gulp.src('src/**/*.html')
+    .pipe(htmlreplace({
+        'css': 'assets/css/app.min.css',
+        'js': [ 'assets/js/vendor.min.js',
+                'assets/js/app.components.min.js']
+    }))
+    .pipe(gulp.dest('build'));
 });
 
 
 /**
  * Images
- * TODO: improve with compresser
  */
 
 gulp.task('images', function() {
@@ -61,42 +73,75 @@ return gulp.src('src/assets/images/**/*')
 });
 
 
-
 /**
  *  React Compiler
  */
 
+var react_files = [
+  'src/assets/js/app.jsx',
+  'src/assets/js/app.home.jsx',
+  'src/assets/js/app.projects.jsx',
+  'src/assets/js/app.router.jsx'
+];
+
 gulp.task('react-compile', function () {
     return gulp.src('src/assets/js/**/*.jsx')
+        .pipe(debug())
         .pipe(react( {harmony: true} ))
-        //.pipe(concat('app.components.js', concat_options))
+        .pipe(gulp.dest( 'build/assets/js' ));
+});
+
+gulp.task('react-build', function () {
+    return gulp.src(react_files)
+        .pipe(debug())
+        .pipe(react( {harmony: true} ))
+        .pipe(concat('app.components.min.js'))
         .pipe(gulp.dest( 'build/assets/js' ));
 });
 
 
 /**
- *  Styles
+ *  Styles/Fonts
  */
 
+var  css_files = [
+                  'src/assets/css/bootstrap.css',
+                  'src/assets/css/app.css',
+                  'src/assets/css/prism-okaidia.css',
+                  'src/assets/css/responsive.css'
+                ];
 gulp.task('styles', function() {
   // concat
-  return gulp.src('src/assets/css/**')
+  return gulp.src(css_files)
+      .pipe(debug())
       .pipe(gulp.dest( 'build/assets/css' ));
+});
+
+gulp.task('styles-build', function() {
+    return gulp.src(css_files)
+      .pipe(debug())
+      .pipe(concat('app.min.css'))
+      .pipe(gulp.dest( 'build/assets/css' ));
+});
+
+gulp.task('copy-fonts', function () {
+  return gulp.src(['src/assets/fonts/**/*', 'src/assets/ico/**/*'])
+        .pipe(gulp.dest( 'build/assets/fonts' ));
 });
 
 
 /**
- * Vendor
+ * Vendor (JS)
  */
 
 var vendor_files = [
-  'bower_modules/modernizr/modernizr.js',
+  'bower_modules/bootstrap/dist/js/bootstrap.js',
+  'bower_modules/lodash/lodash.js',
+  'bower_modules/marked/lib/marked.js',
   'bower_modules/react/react.js',
   'bower_modules/react-router/build/global/ReactRouter.js',
-  'bower_modules/commonjs/common.js',
-  'bower_modules/lodash/lodash.js',
-  'bower_modules/bootstrap/dist/js/bootstrap.js',
-  'bower_modules/marked/lib/marked.js'
+  'src/assets/js/vendor/prism.js',
+  'src/assets/js/prism_azkfile.js'
 ];
 
 gulp.task('copy-vendor', function () {
@@ -112,54 +157,60 @@ gulp.task('copy-assets', function () {
         .pipe(gulp.dest( 'build/assets' ));
 });
 
-
-
-var concat_options = {};
 gulp.task('vendor-concat-uglify', function () {
-    return gulp.src(['src/assets/js/vendor/**/*.js'])
-        .pipe(uglify())
-        .pipe(concat('vendor.js', concat_options))
-        .pipe(gulp.dest( 'build/assets/js' ));
+  return gulp.src(vendor_files)
+      .pipe(debug())
+      .pipe(uglify())
+      .pipe(concat('vendor.min.js'))
+      .pipe(gulp.dest( 'build/assets/js' ));
 });
-
 
 
 /**
- *  Server + Watchers + Livereload
+ *  Default / Watch / Build
  */
 
-gulp.task('server', function(callback) {
+gulp.task('default', function(callback) {
   runSequence('clean-build-folder',
-              'html',
+              'copy-html',
               'copy-assets',
               'copy-vendor',
               'react-compile',
-              //'js-hint',
               callback);
 });
 
-gulp.task('watch', ['server'], function() {
-  gulp.watch('src/*.html',            ['html']); // ✔
-  gulp.watch('src/assets/images/**/*',['images']); // ✔
-  gulp.watch('src/assets/js/**/*.jsx',['react-compile']); // ❍
-  gulp.watch('src/assets/css/**/*',   ['styles']); // ✔
+gulp.task('watch', ['default'], function() {
+  gulp.watch('src/*.html',            ['copy-html']);
+  gulp.watch('src/assets/images/**/*',['images']);
+  gulp.watch('src/assets/js/**/*.jsx',['react-compile']);
+  gulp.watch('src/assets/css/**/*',   ['styles']);
 });
-
-gulp.task('default', ['watch']);
 
 
 /**
  * Build + Versioning
  */
 
+gulp.task('build', function(callback) {
+  runSequence('clean-build-folder',
+              'copy-html',
+              'images',
+              'copy-fonts',
+              'styles-build',
+              'react-build',
+              'vendor-concat-uglify',
+              'htmlreplace',
+              callback);
+});
+
 
 var configs = {
   deploy: {
+    build_path: "build/",
     bucket: process.env.AWS_BUCKET,
     mixpanel_expand: false,
   }
 };
-
 
 // Deploying zipped files
 gulp.task('deploy', function() {
@@ -171,6 +222,8 @@ gulp.task('deploy', function() {
     region: 'sa-east-1',
   });
 
+  console.log("Publisher:", publisher);
+
   // define custom headers
   var headers = {
     'Cache-Control': 'max-age=315360000, no-transform, public',
@@ -178,22 +231,14 @@ gulp.task('deploy', function() {
     // ...
   };
 
-  var src = './content/_book/**/*.*';
-
-  return gulp.src(src)
-    // Only newer files
-    // .pipe(newer(src))
-
+  return gulp.src("build/**/*")
      // gzip, Set Content-Encoding headers and add .gz extension
     .pipe(awspublish.gzip())
-
     // publisher will add Content-Length, Content-Type and headers specified above
     // If not specified it will set x-amz-acl to public-read by default
     .pipe(parallelize(publisher.publish(headers), 10))
-
     // create a cache file to speed up consecutive uploads
     .pipe(publisher.cache())
-
     // print upload updates to console
     .pipe(awspublish.reporter());
 });

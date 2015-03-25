@@ -1,29 +1,11 @@
 /** @jsx React.DOM */
 
-/**
- * Markdown Config
- * @type {Boolean}
- */
-
-marked.setOptions({
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: true,
-  smartLists: true,
-  smartypants: false,
-  langPrefix: 'language-'
-});
-
-// Prism Regex
-var PrismlangRegEX = /\blang(?:uage)?-(?!\*)(\w+)\b/i;
-
 var Router        = ReactRouter;
 var DefaultRoute  = Router.DefaultRoute;
 var Link          = Router.Link;
 var Route         = Router.Route;
 var RouteHandler  = Router.RouteHandler;
+
 
 /**
  *  App holder
@@ -95,15 +77,17 @@ var ImagesComponent = React.createClass({
 var ImagesSidebar = React.createClass({
   render: function() {
     return (
-      <ul className="list-group">
-        {this.props.images.map(function(image){
-          return (
-            <a key={image.id} className="list-group-item" href={'/#/' + image.id}>
-              {image.name}
-            </a>
-          )
-        })}
-      </ul>
+      <div id="images-sidebar">
+        <ul className="list-group">
+          {this.props.images.map(function(image){
+            return (
+              <a key={image.id} className="list-group-item" href={'/#/' + image.id}>
+                {image.name}
+              </a>
+            )
+          })}
+        </ul>
+      </div>
     );
   }
 });

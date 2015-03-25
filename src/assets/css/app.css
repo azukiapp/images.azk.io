@@ -280,6 +280,30 @@ code {
   border-bottom: 1px dotted #30b4cb;
 }
 
-.dockerfile-versions li {
-  padding: 5px 10px;
+ul.dockerfile-versions {
+  padding-left: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  margin-top: 10px;
+}
+ul.dockerfile-versions span.version-title {
+  margin-bottom: 10px;
+}
+
+ul.dockerfile-versions li {
+  padding: 5px 0;
+  margin-left: 24px;
+}
+
+ul.dockerfile-versions li a:focus,
+  #images-sidebar ul li a:focus {
+  background: #eee;
+}
+
+#docker-component span.dockerversion {
+  color: #50bfbb;
+}
+
+#stickySidebar {
+  margin-top: 60px;
 }

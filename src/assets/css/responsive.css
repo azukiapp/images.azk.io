@@ -18,6 +18,7 @@
 		padding-left: 10px;
 		padding-right: 10px;
 	}
+
 	.navbar .nav > li > a {
 		border-top: 1px solid #f6f6f6;
 		font-size: 14px;
@@ -294,8 +295,8 @@
 
 @media (min-width: 992px) {
 	.content-brand {
-    width: 240px;
-    height: 100px;
+    width: 213px;
+    height: 90px;
 	}
 
 	.navbar-default .navbar-collapse {
@@ -326,7 +327,7 @@
 @media (min-width: 1322px) {
 	.navbar-default .navbar-collapse {
 		padding-right: 0;
-	}	
+	}
 }
 
 .use-case-img {
