@@ -6,3 +6,4 @@ deploy/
 .DS_Store
 bower_modules
 .awspublish*
+.env
