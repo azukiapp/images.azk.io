@@ -213,7 +213,7 @@ var configs = {
 };
 
 // Deploying zipped files
-gulp.task('deploy', function() {
+gulp.task('deploy', ['build'], function() {
   // create a new publisher
   var publisher = awspublish.create({
     key:    process.env.AWS_ACCESS_KEY_ID,
@@ -221,8 +221,6 @@ gulp.task('deploy', function() {
     bucket: configs.deploy.bucket,
     region: 'sa-east-1',
   });
-
-  console.log("Publisher:", publisher);
 
   // define custom headers
   var headers = {
@@ -232,6 +230,7 @@ gulp.task('deploy', function() {
   };
 
   return gulp.src("build/**/*")
+    .pipe(debug())
      // gzip, Set Content-Encoding headers and add .gz extension
     .pipe(awspublish.gzip())
     // publisher will add Content-Length, Content-Type and headers specified above
