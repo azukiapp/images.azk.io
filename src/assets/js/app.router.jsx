@@ -1,4 +1,16 @@
 /**
+ * Analytics Settings
+ */
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41383022-2']);
+
+function push_analytics(label) {
+  _gaq.push(['_trackPageview', label]);
+}
+
+
+/**
  * Router
  */
 
@@ -11,5 +23,7 @@ var routes = (
 );
 
 Router.run(routes, function (Handler) {
+  var endpoint = (window.location.hash == '#/') ? '/' : window.location.hash.slice(2);
+  push_analytics( endpoint );
   React.render(<Handler/>, document.getElementById('container'));
 });
