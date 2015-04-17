@@ -45,7 +45,7 @@ Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` and `AWS_BUCKET` keys in local `.env` 
 
 ## Portuguese Version
 
-Respoitório de imagens do Azuki para o  `azk`: [http://images.azk.io](http://images.azk.io)
+Repositório de imagens do Azuki para o  `azk`: [http://images.azk.io](http://images.azk.io)
 
 ### Instalação
 
