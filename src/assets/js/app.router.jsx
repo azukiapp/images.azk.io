@@ -4,6 +4,7 @@
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-41383022-2']);
+_gaq.push(['_setDomainName', 'azk.io']);
 
 function push_analytics(label) {
   _gaq.push(['_trackPageview', label]);
