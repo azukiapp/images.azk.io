@@ -1,0 +1,131 @@
+body {
+  /*font-size: 62.5%;*/
+}
+
+a {
+  color: $brand-primary;
+}
+
+.bluer { color: $brand-primary; }
+.green { color: $brand-success; }
+.yellow { color: $brand-warning; }
+.red { color: $brand-danger; }
+.blue { color: $brand-info; }
+
+/*
+  Headings
+*/
+
+/* 1em = 16px */
+
+h1, h2, h3, h4, h5, h6 {
+  /*color: $brand-primary;*/
+  font-family: "ProximaNova-Light", Arial, Helvetica, Geneva, sans-serif;
+}
+
+h1 { /*color: $brand-primary;*/ }
+h2 { /*color: $brand-primary;*/ }
+h3 { /*color: $brand-primary;*/ }
+h4 { color: rgba(0,0,0,.4); }
+h5 { color: rgba(0,0,0,.7); }
+h6 { color: rgba(0,0,0,.7); }
+
+h3 small { font-size: 16px; text-transform: capitalize; }
+h4 small { font-size: 12px; text-transform: capitalize; }
+h5 small { font-size: 11px; text-transform: capitalize; }
+h6 small { font-size: 9px; text-transform: uppercase; }
+
+h3 small,
+  h4 small,
+  h5 small,
+  h6 small {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  color: rgba(0,0,0,.7);
+  background: none;
+  border: none;
+  vertical-align: bottom;
+}
+
+p {
+  font-family: $font-family-sans-serif;
+  font-size: 14px;
+  color: rgba(0,0,0,0.70);
+  letter-spacing: 0.28px;
+  line-height: 22px;
+}
+
+/*
+  Buttons
+*/
+
+a.btn {
+  text-decoration: none;
+}
+
+.btn {
+  font-family: $font-family-sans-serif;
+}
+
+.btn-default {
+  border-color: $brand-primary;
+  color: $brand-primary;
+}
+
+.btn-default:hover {
+  background: $brand-primary;
+  border-color: $brand-primary;
+  color: #fff;
+}
+
+.btn-radius {
+  border-radius: 19px;
+}
+
+.btn-xs {
+  border-radius: 14px;
+  font-weight: normal;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn-lg {
+  border-radius: 25px;
+  font-weight: normal;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.btn-sm {
+  border-radius: 19px;
+  font-weight: normal;
+  font-family: ProximaNova-Bold;
+  font-size: 12px;
+  color: $brand-primary;
+  letter-spacing: 1.28px;
+  padding: 12px 15px 10px;
+  line-height: 14px;
+  background-color: transparent;
+  text-transform: uppercase;
+}
+
+.rounded {
+  border-radius: 29px;
+  padding:15px 25px;
+}
+
+
+input[type=text], textarea {
+  box-shadow: none;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+}
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(234,86, 68, .4);
+  border: 1px solid rgba(234,86, 68, .4);
+}

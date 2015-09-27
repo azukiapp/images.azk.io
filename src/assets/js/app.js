@@ -1,10 +1,29 @@
-/** @jsx React.DOM */
+import React        from 'react';
+import { Router, Route } from 'react-router';
+import _            from 'lodash';
 
-var Router        = ReactRouter;
-var DefaultRoute  = Router.DefaultRoute;
-var Link          = Router.Link;
-var Route         = Router.Route;
-var RouteHandler  = Router.RouteHandler;
+import Routes from './app.router.js'
+
+/**
+ * Analytics Settings
+ */
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41383022-2']);
+_gaq.push(['_setDomainName', 'azk.io']);
+
+function push_analytics(label) {
+  _gaq.push(['_trackPageview', label]);
+}
+
+Router.run(Routes, function (Handler) {
+  var locationHash = window.location.hash,
+      endpoint = (_.contains(['#/', '/'], locationHash)) ? '/' : locationHash.slice(2);
+  push_analytics( endpoint );
+  React.render(<Handler/>, document.getElementById('container'));
+});
+
+
 
 
 /**

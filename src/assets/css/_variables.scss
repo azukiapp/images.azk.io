@@ -1,0 +1,52 @@
+$bootstrap-sass-asset-helper: false !default;
+
+/*
+    Grid
+ */
+/*
+$grid-columns:              12;
+$grid-gutter-width:         20px;
+*/
+
+/*
+    Colors
+ */
+$brand-primary: #428BCA;
+$brand-success: #57C689;
+$brand-info:    #3CA2E0;
+$brand-warning: #F7B840;
+$brand-danger:  #EA5644;
+
+$gray-darker:  lighten(#000, 10%);
+$gray-dark:    lighten(#000, 30%);
+$gray:         lighten(#000, 60%);
+$gray-light:   lighten(#000, 70%);
+$gray-lighter: lighten(#000, 90%);
+
+/*
+    Typography
+ */
+$font-family-sans-serif:  "HelveticaNeue", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+$font-family-monospace:   Andale, Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$font-family-base:        $font-family-sans-serif;
+
+$font-size-base:          16px;
+$font-size-large:         ceil(($font-size-base * 1.25)); // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)); // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.6)); // ~36px
+$font-size-h2:            floor(($font-size-base * 2.15)); // ~30px
+$font-size-h3:            ceil(($font-size-base * 1.7)); // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)); // ~18px
+$font-size-h5:            $font-size-base;
+$font-size-h6:            ceil(($font-size-base * 0.85)); // ~12px
+
+$line-height-base:        1.428571429; // 20/14
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+$headings-font-family:    inherit;
+$headings-font-weight:    500;
+$headings-line-height:    1.1;
+$headings-color:          inherit;
