@@ -8,29 +8,31 @@ systems({
     // Dependent systems
     depends: [],
     // More images:  http://images.azk.io
-    image: {"docker": "azukiapp/node:0.10"},
+    image: {"docker": "azukiapp/node"},
     // Steps to execute before running instances
     provision: [
-      "npm install",
-      "bower install --allow-root"
+      "npm install"
     ],
     workdir: "/azk/#{manifest.dir}",
     shell: "/bin/bash",
-    command: "node index.js",
-    wait: {"retry": 20, "timeout": 1000},
+    command: "npm start",
+    wait: 20,
     mounts: {
-      '/azk/#{manifest.dir}': path("."),
-      '/azk/#{manifest.dir}/node_modules': persistent("node_modules"),
+      '/azk/#{manifest.dir}': sync("."),
+      '/azk/#{manifest.dir}/node_modules': persistent("#{system.name}/node_modules"),
     },
     scalable: {"default": 1},
     http: {
       domains: [ "#{system.name}.#{azk.default_domain}" ]
     },
+    ports: {
+      // exports global variables
+      http: "3000/tcp",
+      live: "35729:35729/tcp",
+    },
     envs: {
-      // set instances variables
       NODE_ENV: "dev",
-      PATH: "node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-      // PATH: "node_modules/.bin:$PATH",
+      PATH: "node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     },
   },
 });
