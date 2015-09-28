@@ -1,97 +1,61 @@
-# http://images.azk.io
+# Images
 
-## English Version
+Este é o código fonte para a aplicação [http://images.azk.io](http://images.azk.io).
 
-Azuki images repository to `azk`: [http://images.azk.io](http://images.azk.io)
+Esta aplicação é deploiada como uma aplicação frontend, e utiliza dados do https://github.com em tempo real.
 
-### Installation
+## Rodando localmente
 
-Install AZK
+Para o seu desenvolvimento você pode usar as duas opções a baixo, dando preferencia para opção que utiliza o http://azk.io:
 
-  [http://docs.azk.io/en/installation/](http://docs.azk.io/en/installation/)
+### with azk
 
-Install assets with Bower:
+```sh
+# clean all persistent folder before run
+sudo rm -rf node_modules build
 
-  ```bash
-  azk nvm bower install
-  ```
-  
-Start project:
+# start azk and logs
+azk restart -R -vv && azk logs --follow
+```
 
-  ```bash
-  azk nvm gulp default
-  azk start --open
-  ```
-  
-For development:
+then, open http://images-dev.dev.azk.io on your browser
 
-  ```bash
-  azk nvm gulp watch
-  ```
-  
-Logs:
+### without azk
 
-  ```bash
-  azk logs --tail
-  ```
+```sh
+# get back access for all your files
+sudo chown `whoami` -R .
 
-### Deploy
+npm install
+npm start
+```
 
-Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` and `AWS_BUCKET` keys in local `.env` file and run:
+then, open http://localhost:3000 on your browser
 
-  ```bash
-  $ azk shell -c 'gulp deploy'
-  ```
+## Deploying
 
-## Portuguese Version
+Before deploying you must create a file named `.env` or copy and update `.env.sample`
 
-Repositório de imagens do Azuki para o  `azk`: [http://images.azk.io](http://images.azk.io)
+```ini
+UA_CODE=UA-XXXXXXXX-Y
+AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXX
+AWS_SECRET_KEY=XXXXXXXXXXXXXXXXX
+AWS_BUCKET_PROD=[bucket to prod deploy]
+AWS_BUCKET_STAGE=[bucket to stage deploy]
+```
 
-### Instalação
+Depois disso você pode fazer o deploy com:
 
-Instale o `azk`
-
-  [http://docs.azk.io/pt-BR/installation/](http://docs.azk.io/pt-BR/installation/)
-
-
-Instale assets via Bower:
-
-  ```bash
-  azk nvm bower install
-  ```
-  
-Inicie o projeto:
-
-  ```bash
-  azk nvm gulp default
-  azk start --open
-  ```
-  
-Para desenvolvimento:
-
-  ```bash
-  azk nvm gulp watch
-  ```
-  
-
-Logs:
-
-  ```bash
-  azk logs --tail
-  ```
-
-### Deploy
-
-Adicione as chaves `AWS_ACCESS_KEY_ID`, `AWS_SECRET_KEY` e `AWS_BUCKET` no arquivo local `.env` e depois execute:
-
-  ```bash
-  $ azk shell -c 'gulp deploy'
-  ```
+```sh
+azk shell -- gulp deploy --production
+# or
+azk shell -- gulp deploy --stage
+```
 
 ## License
 
-"Azuki", "Azk" and the Azuki logo are copyright (c) 2013-2015 Azuki Serviços de Internet LTDA.
+"Azuki", "azk" and the Azuki logo are copyright (c) 2013-2015 Azuki Serviços de Internet LTDA.
 
-Azk source code is released under Apache 2 License.
+azk source code is released under the Apache 2 License.
 
 Check LEGAL and LICENSE files for more information.
