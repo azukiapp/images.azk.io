@@ -1,25 +1,25 @@
 import React from 'react';
 import { Router, Route, State } from 'react-router';
 import $ from 'jquery';
-import '../../vendor/jquery.stickySidebar';
+import Sticky from 'react-sticky';
 
 var VersionsComponent = module.exports = React.createClass({
   mixins: [State],
   componentDidMount: function() {
-    // bootstrap affix for dockerfile versions sidebar
-    // affixSidebar();
     // scrollTo dockerfile if /:version is available
-    console.log(this.props.params && this.props.params.version)
-    console.log(this.props)
-    console.log(this.props.params)
-    if (this.props.version) {
-      scrollToDockerfile();
-    }
+    // if (this.props.version) {
+    //   scrollToDockerfile();
+    // }
   },
   render: function() {
     var parsedVersions = this.props.versions;
     var projectName = this.props.projectName;
+    var customStyleObject = {
+      position: 'fixed',
+      top: '60px'
+    };
     return (
+      <Sticky stickyStyle={customStyleObject} topOffset={-120}>
       <div id="stickySidebar">
         <ul className="nav">
           <li>
@@ -47,24 +47,7 @@ var VersionsComponent = module.exports = React.createClass({
           </li>
         </ul>
       </div>
+      </Sticky>
     );
   }
-
 });
-
-
-function affixSidebar() {
-   $('#stickySidebar').affix({
-    offset: {
-      bottom: function () {
-        return (this.bottom = $('.footer').outerHeight(true))
-      }
-    }
-  });
-  $('#stickySidebar').affix();
-}
-
-function scrollToDockerfile() {
-  console.log('Scrolling to dockerfile');
-  return $(window).scrollTop($('#docker-component').offset().top-60);
-}

@@ -55,6 +55,7 @@
     "ramda": "^0.17.1",
     "react": "^0.13.3",
     "react-router": "^1.0.0-rc1",
+    "react-sticky": "^2.5.2",
     "run-sequence": "^1.1.1",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
