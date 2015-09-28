@@ -1,14 +1,14 @@
 import React        from 'react';
 import { Router, Route } from 'react-router';
 
-/**
- * Router
- */
+import App              from './components/app.js';
+import HomeTemplate     from './components/app.home.js';
+import ProjectTemplate  from './components/app.projects.js';
 
-var Routes = module.exports = (
-  <Route handler={App}>
-    <Route path="/" handler={HomeTemplate} />
-    <Route path="/:name" handler={ProjectTemplate} />
-    <Route path="/:name/:version" handler={ProjectTemplate}  ignoreScrollBehavior />
+var AppRoutes = module.exports = (
+  <Route component={App}>
+    <Route path="/" component={HomeTemplate} />
+    <Route path="/:name" component={ProjectTemplate} />
+    <Route path="/:name/:version" component={ProjectTemplate}  ignoreScrollBehavior />
   </Route>
 );

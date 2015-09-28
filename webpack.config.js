@@ -3,18 +3,15 @@ var path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/assets/js/app.js',
+    app: './src/assets/js/app.boot.js',
 
     // split vendor to another file
     vendors: [
       'react',
       'react-router',
       'marked',
-      // 'prism',
       'lodash',
-      'jquery',
-      // 'bluebird',
-      // 'query-string',
+      'jquery'
     ]
   },
   output: {
