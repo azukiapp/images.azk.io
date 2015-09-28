@@ -6,6 +6,7 @@
 var dotenv              = require('dotenv');
 var del                 = require('del');
 var gulp                = require('gulp');
+var argv                = require('yargs').argv;
 var awspublish          = require('gulp-awspublish');
 var parallelize         = require('concurrent-transform');
 var concat              = require('gulp-concat');
@@ -207,18 +208,21 @@ gulp.task('build', function(callback) {
 var configs = {
   deploy: {
     build_path: "build/",
-    bucket: process.env.AWS_BUCKET,
     mixpanel_expand: false,
   }
 };
 
 // Deploying zipped files
 gulp.task('deploy', ['build'], function() {
+  var bucket = process.env[
+    "AWS_BUCKET_" + (argv.production ? "PROD" : "STAGE")
+  ];
+
   // create a new publisher
   var publisher = awspublish.create({
     key:    process.env.AWS_ACCESS_KEY_ID,
     secret: process.env.AWS_SECRET_KEY,
-    bucket: configs.deploy.bucket,
+    bucket: bucket,
     region: 'sa-east-1',
   });
 
