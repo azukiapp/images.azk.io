@@ -32,6 +32,7 @@ systems({
     },
     envs: {
       NODE_ENV: "dev",
+      PORT: "3000",
       PATH: "node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     },
   },
