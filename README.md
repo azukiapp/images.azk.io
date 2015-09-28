@@ -18,7 +18,7 @@ sudo rm -rf node_modules build
 azk restart -R -vv && azk logs --follow
 ```
 
-then, open http://images-dev.dev.azk.io on your browser
+then, open http://images-azk.dev.azk.io on your browser
 
 ### without azk
 
