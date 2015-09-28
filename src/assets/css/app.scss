@@ -6,7 +6,7 @@
 @import "bootstrap-override";
 
 /* azk theme */
-// @import "theme";
+@import "theme";
 
 /* images.azk.io css */
 @import "responsive";
@@ -22,10 +22,10 @@ body {
   position: relative;
 }
 a {
-  color: #24afaa;
+  color: $brand-primary;
 }
 a:hover {
-  color: #50bfbb;
+  color: $brand-info;
   text-decoration: none;
   -webkit-transition: 0.25s;
   -moz-transition: 0.25s;
@@ -137,7 +137,7 @@ pre { margin: 0 0 20px !important;}
 .content-brand {
   display: block;
   margin-left: 10px;
-  width: 160px;
+  width: 212px;
 }
 .content-brand__image {
   margin-top: 5px;
@@ -148,7 +148,7 @@ pre { margin: 0 0 20px !important;}
 .nav {
   font: normal 16px/16px "ProximaNova-Semibold", Arial, Helvetica, Geneva, sans-serif;
   text-shadow: none;
-  margin-top: 8px;
+  margin-top: 20px;
 }
 
 .navbar .container {
@@ -200,7 +200,7 @@ pre { margin: 0 0 20px !important;}
 }
 
 #footer {
-  height: 60px;
+      height: 105px;
   background-color: #f5f5f5;
 }
 
@@ -231,6 +231,8 @@ pre { margin: 0 0 20px !important;}
 
 code {
   font-size: 80%;
+  color: #EA5644;
+  background-color: rgba(0,0,0,.03);
 }
 
 .readme h1:first-child {
@@ -274,3 +276,23 @@ ul.dockerfile-versions li a:focus,
   margin-top: 60px;
 }
 
+.repository__full-name {
+  color: $brand-primary;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background: rgba(0,0,0,.03)
+}
+
+a.list-group-item:hover, button.list-group-item:hover, button.list-group-item:focus {
+  background: rgba(0,0,0,.03)
+}
+
+a.list-group-item:active {
+  font-weight: 300;
+}
+
+.azuki-logo {
+   width: 113px;
+   height: 40px;
+}
