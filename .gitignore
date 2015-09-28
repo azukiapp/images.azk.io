@@ -1,9 +1,8 @@
-.azk
-node_modules
-*.log
+node_modules/
 build/
-deploy/
-.DS_Store
-bower_modules
-.awspublish*
+.azk
+.npm
+.bash_history
+*.log
 .env
+.awspublish-*
