@@ -8,7 +8,7 @@ systems({
     // Dependent systems
     depends: [],
     // More images:  http://images.azk.io
-    image: {"docker": "azukiapp/node"},
+    image: {"docker": "azukiapp/node:0.12"},
     // Steps to execute before running instances
     provision: [
       "npm install"
