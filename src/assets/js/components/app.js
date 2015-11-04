@@ -17,13 +17,11 @@ var App = module.exports = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    console.log('Firing componentWillReceiveProps');
     this._trackAnalyticsPageView(nextProps.params.name);
   },
 
   _trackAnalyticsPageView: function(name) {
     var image = (name) ? `/${name}` : '/';
-    console.log("Tracking", image);
     TrackerStore.sendPageView(image);
   },
 

@@ -5,12 +5,6 @@ import Sticky from 'react-sticky';
 
 var VersionsComponent = module.exports = React.createClass({
   mixins: [State],
-  componentDidMount: function() {
-    // scrollTo dockerfile if /:version is available
-    // if (this.props.version) {
-    //   scrollToDockerfile();
-    // }
-  },
   render: function() {
     var parsedVersions = this.props.versions;
     var projectName = this.props.projectName;

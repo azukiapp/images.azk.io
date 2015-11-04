@@ -31,7 +31,6 @@ var TrackerStore = module.exports = {
 
   sendPageView: function(repo) {
     // https://developers.google.com/analytics/devguides/collection/analyticsjs/pages#overriding
-    console.log('TrackerStore::sendPageView', repo);
     _Tracker('send', 'pageview', repo);
   },
 

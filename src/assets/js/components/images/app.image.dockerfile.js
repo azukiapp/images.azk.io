@@ -7,9 +7,11 @@ var DockerfileComponent = module.exports = React.createClass({
 
   mixins: [State],
 
-  componentDidUpdate: function() {
+  componentDidUpdate: function(props, nextProps) {
     if (this.props.dockerfile != "") {
       CodeHighlighter( this.refs.dockerfileContainer.getDOMNode() );
+      // hack to scoll to Dockerfile component
+      window.scrollTo(0,document.getElementById('docker-component').offsetTop + 50);
     }
   },
 
